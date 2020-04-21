@@ -9,15 +9,15 @@ import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        rcViewLanding.layoutManager = GridLayoutManager(this, 2)
+        rcViewLanding.layoutManager = LinearLayoutManager(this)
 
-        val data = (0..20).map {       //map itera sobre el rango
-            ItemLanding("Titulo $it", "Desc $it", price = 200.00 + it)          //it retorna un entero
+
+        val data = (0..20).map { //map itera sobre el rango
+            ItemLanding("Title $it", "Descr $it", 200.00 + it)
         }
 
         rcViewLanding.adapter = AdapterLanding(data)
